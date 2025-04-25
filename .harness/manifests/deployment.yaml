@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+spec:
+  replicas: {{int .Values.replicas }}
+  revisionHistoryLimit: 3
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  template:
+    metadata:
+      name: "{{ .Values.name }}-{{ .Values.version }}"
+      labels:
+        app: {{ .Values.name }}
+        version: {{ .Values.version }}
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+        - name: {{ .Values.name }}
+          image: {{ .Values.image }}
+          imagePullPolicy: Never
+          ports:
+            - name: http
+              containerPort: "{{ .Values.service.targetPort }}"
+              protocol: {{ .Values.service.protocol }}

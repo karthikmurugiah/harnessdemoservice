@@ -1,0 +1,16 @@
+name: <+service.name>
+namespace: <+service.name>
+version: <+pipeline.variables.artifactVersion>
+#tag: <+artifacts.primary.tag>
+#repository: <+serviceVariables.repo>
+
+#image: <+serviceVariables.repo>/<+service.name>:<+artifacts.primary.tag>
+image: <+service.name>
+
+replicas: 1
+
+service:
+  type: NodePort
+  port: 30007
+  targetPort: 8080
+  protocol: TCP
