@@ -11,6 +11,7 @@ replicas: 1
 
 service:
   type: NodePort
-  port: 30007
+  port: 80
   targetPort: 8080
   protocol: TCP
+  nodePort: 30008
