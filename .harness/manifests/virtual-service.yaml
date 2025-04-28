@@ -12,8 +12,6 @@ spec:
     - match:
         - uri:
             prefix: /harness  # Route traffic only for '/path'
-      route:
-        - destination:
-            host: {{.Values.name}}-service  # The service to route traffic to
-            port:
-              number: {{ .Values.service.port }}  # The port on which the service is running
+      delegate:
+        name: {{ .Values.name }}-virtual-service
+        namespace: {{ .Values.namespace }}
