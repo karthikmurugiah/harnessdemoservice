@@ -14,4 +14,4 @@ spec:
             prefix: /harness  # Route traffic only for '/path'
       delegate:
         name: {{ .Values.name }}-virtual-service
-        namespace: {{ .Values.namespace }}
+        namespace: default #TODO: {{ .Values.namespace }}
