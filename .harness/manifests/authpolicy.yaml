@@ -1,0 +1,14 @@
+apiVersion: security.istio.io/v1
+kind: AuthorizationPolicy
+metadata:
+  name: {{ .Values.name }}-exauth-policy
+spec:
+  action: CUSTOM
+  provider:
+    # This is the name of our provider. More than one can be installed and this tells us which one to use (though only one can be called for each namespace).
+    name: {{ .Values.extAuthProvider }}
+  rules:
+    # The rules specify when to trigger the external authorizer. Only paths that need authentication SHOULD be added here.
+    - to:
+        - operation:
+            paths: ["/harness"]
