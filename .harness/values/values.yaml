@@ -16,4 +16,4 @@ service:
   protocol: TCP
 #  nodePort: 30007
 
-  extAuthProvider: sample-ext-authz-http
+extAuthProvider: sample-ext-authz-http
