@@ -6,7 +6,7 @@ spec:
   hosts:
     - "*"
   gateways:
-    - sample-istio-gateway  # The gateway that this VirtualService uses
+    - default/sample-istio-gateway  # The gateway that this VirtualService uses
   http:
     - match:
         - uri:
