@@ -18,4 +18,4 @@ service:
 
 extAuthProvider: sample-ext-authz-http
 
-deployTimestamp: <+timestamp>
+deployTimestamp: <+pipeline.variables.deployTimestamp>
