@@ -17,3 +17,5 @@ service:
 #  nodePort: 30007
 
 extAuthProvider: sample-ext-authz-http
+
+deployTimestamp: <+timestamp>

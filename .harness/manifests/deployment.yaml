@@ -14,7 +14,7 @@ spec:
       annotations:
         # This is to make harness forcefully deploy a new verion everytime I run the pipleline even if there are no changes.
         # With out this when there are no changes, there is no green pod and half of the requests are failing
-        harness.io/deployTimestamp: "<+timestamp>"
+        harness.io/deployTimestamp: {{ .Values.deployTimestamp }}
       name: "{{ .Values.name }}-{{ .Values.version }}"
       labels:
         app: {{ .Values.name }}
